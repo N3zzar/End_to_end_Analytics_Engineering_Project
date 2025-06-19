@@ -1,4 +1,8 @@
-Welcome to your new dbt project!
+Welcome to my new dbt project!
+
+
+You can view my documentation [here](https://luxury-pixie-36f938.netlify.app/)
+
 
 ### Using the starter project
 
