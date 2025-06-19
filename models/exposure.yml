@@ -1,0 +1,15 @@
+version: 2
+
+exposures:
+  - name: Analytics_engineering_analysis
+    type: analysis
+    maturity: low
+    url:
+    description: >
+      This analysis provides some insights across analytics engineering contents 
+      on youtube and can be used by anyone looking to learn on youtube.
+    depends_on:
+      - ref( 'fct_videos_performance')
+    owner:
+      name: Nezzar
+      email: nezzar@*******

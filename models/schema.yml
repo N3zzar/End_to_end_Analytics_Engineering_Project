@@ -1,0 +1,79 @@
+version: 2
+
+models:
+  - name: stg_youtube__analytics_engineering__videos
+    description: "Staging model for YouTube engineering videos. Further refined to include explicitly Analytics engineering related rows"
+
+  - name: int_videos_info
+    description: "Intermediate model for video information"
+
+  - name: int_channel_info
+    description: "Intermediate model for channel information"
+    columns: 
+      - name: channel_name
+        description: "Name of the Youtube Channel that uploaded the video"
+  - name: fct_videos_performance
+    description: "Final model for analysis"
+    columns: 
+      - name: channel_id
+        description: "Unique identifier for each channel. This is the primary key for channel_level analysis"
+        tests:
+          - not_null
+          - relationships:
+                to: ref( 'int_channel_info')
+                field: channel_id
+      - name: channel_name
+        description: "Name of the Youtube Channel that uploaded the video"
+      - name: subscriber_count
+        description: "Total numbers of subcribers this channel had at the time of data capture"
+      - name: video_id
+        description: "Unique identifier for each video. This is the primary key for video_level analysis"
+        tests:
+          - unique
+      - name: video_title
+        description: "The exact title of the video as published on Youtube."
+      - name: published_date
+        description: "The date the video was published on the platform"
+      - name: view_count
+        description: "Total views the video has accumulated"
+      - name: like_count
+        description: "Number of likes the video recieved"
+      - name: comment_count
+        description: "Number of comments posted on the video" 
+      - name: engagement_rate
+        description: "Ratio of total engagement (likes + comments) to view or subscribers, indicating viewer interaction level"
+      - name: engagement_tier
+        description: "Categorical classifciation (e.g High, medium, Low) based on engagement_rate benchmarks"
+      - name: like_rate
+        description: "percentage of viewers who commented on the video (comments_amount / views)"
+      - name: comment_rate
+        description: "Ratio of total video views to the number of channel subscribers, showing content reach efficiency"
+      - name: channel_rate
+        description: "views per subsribers"
+      - name: channel_size
+        description: "Categorical tier of the channel based on subscribers count (e.g small, medium, large)"
+        tests: 
+          - accepted_values:
+                values: ['small', 'medium', 'large']
+      - name: published_year
+        description: "{{ doc( 'date_documentation') }}"
+        tests:
+          - accepted_values:
+                values: ['2023', '2024', '2025']
+      - name: published_month_name
+        description: "Month extracted from the published_date"
+      - name: published_day_name
+        description: "Day of the week (e.g., Monday, Tuesday) the video was published"
+      - name: days_since_published
+        description: "Number of days elapsed since the video was published, calculated as the difference between the current date and the published_date."
+      - name: is_viral
+        description: "Boolean flag indicating whether a video surpassed a predefined viral engagement threshold"
+
+sources:
+  - name: analytics
+    description: >
+      This source contains raw data ingested from the youtube data Api.
+    schema: analytics
+    tables:
+      - name: youtube_engineering_ng
+        description: "Data searched terms videos scraped from Youtube"
