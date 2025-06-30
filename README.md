@@ -49,16 +49,23 @@ Below is the DAG lineage ![here](https://github.com/N3zzar/End_to_end_Analytics_
 - Uploaded CSV into local PostgreSQL instance
 
 ### 3. Data Transformation with dbt Core
-- Created `staging` and `marts` layers
-- Applied tests and documentation
-- Connected dbt to GitHub for source control
 
-📂 `models/` contains folders for:
-- `staging/`
-- `marts/`
-- `schema.yml`
+To ensure clean, reliable, and testable data transformations, I used **dbt Core** to build out a modular analytics workflow. Here's how dbt added value to the pipeline:
 
-🧾 [View dbt docs locally](https://luxury-pixie-36f938.netlify.app/)
+- ✅ **Model structure**: I separated logic into `staging` and `marts` layers using the modern ELT pattern.
+- ✅ **Source freshness**: Defined and tested raw sources from my PostgreSQL database.
+- ✅ **Testing**: Applied built-in dbt tests (e.g. `not_null`, `unique`) to enforce data quality rules.
+- ✅ **Version control**: Integrated with GitHub for full change tracking and collaboration readiness.
+- ✅ **Documentation**: Used dbt’s `docs generate` to create browsable documentation with lineage graphs.
+- ✅ **Reusability**: Built Jinja-powered macros for flexible metric logic (e.g., identifying viral videos based on engagement rate thresholds).
+
+📂 Explore the dbt project:
+- [`models/staging/`](./models/staging) – Raw cleaning + formatting  
+- [`models/marts/`](./models/marts) – Business-ready tables  
+- [`schema.yml`](./models/schema.yml) – Tests + documentation  
+- [`macros/`](./macros) – Custom logic like `is_viral()`  
+
+🧾 [View the generated dbt documentation locally](https://luxury-pixie-36f938.netlify.app/)
 
 ### 4. Cloud Integration
 - Final model table sent to **Aiven PostgreSQL**
