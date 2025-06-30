@@ -28,12 +28,11 @@ It is alot of documentation and may be too technical for you, so here's a quick 
 
 Below is the full pipeline flow from data ingestion to dashboard:
 
-![Pipeline Flow]((https://github.com/N3zzar/End_to_end_Analytics_Engineering_Project/blob/main/images/Pipeline%20Flow.svg)
+![Pipeline Flow](https://github.com/N3zzar/End_to_end_Analytics_Engineering_Project/blob/main/images/Pipeline%20Flow.svg)
 
 ## Project lineage
 
-You can view my documentation [here](https://luxury-pixie-36f938.netlify.app/)
-
+You can view my documentation [here](images/dbt-dag.png)
 
 ## ⚙️ Pipeline Breakdown
 
@@ -58,7 +57,7 @@ You can view my documentation [here](https://luxury-pixie-36f938.netlify.app/)
 - `marts/`
 - `schema.yml`
 
-🧾 [View dbt docs locally](./dbt_docs/index.html)
+🧾 [View dbt docs locally](https://luxury-pixie-36f938.netlify.app/)
 
 ### 4. Cloud Integration
 - Final model table sent to **Aiven PostgreSQL**
