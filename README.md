@@ -11,7 +11,7 @@ The pipeline moves from raw data to insights, showcasing skills in data ingestio
 
 It is alot of documentation and may be too technical for you, so here's a shortcut to view the story:
 
-![dashboard-preview](https://app.hex.tech/01975268-573e-700f-b2a8-334ff3d11792/app/0197653c-a671-7006-8804-4c569c560481/latest)
+[dashboard-preview](https://app.hex.tech/01975268-573e-700f-b2a8-334ff3d11792/app/0197653c-a671-7006-8804-4c569c560481/latest)
 
 
 ## 🧰 Tech Stack
@@ -29,9 +29,11 @@ Below is the full pipeline flow from data ingestion to dashboard:
 
 ![Pipeline Flow](https://github.com/N3zzar/End_to_end_Analytics_Engineering_Project/blob/main/images/Pipeline%20Flow.svg)
 
+
 ## Project lineage
 
 Below is the DAG lineage ![here](https://github.com/N3zzar/End_to_end_Analytics_Engineering_Project/blob/main/images/dbt-dag.png)
+
 
 ## ⚙️ Pipeline Breakdown
 
@@ -41,7 +43,7 @@ Below is the DAG lineage ![here](https://github.com/N3zzar/End_to_end_Analytics_
 - Saved to CSV for initial backup
 
 📁 [Scraping Script](https://github.com/N3zzar/Youtube_data_project/blob/main/Code)
-📄 [Raw CSV Sample](./data/youtube_raw_data.csv)
+📄 [Raw CSV Sample](https://github.com/N3zzar/End_to_end_Analytics_Engineering_Project/blob/main/Files/Nezzar_results_cleaned.csv)
 
 ### 2. Data loading
 - Uploaded CSV into local PostgreSQL instance
@@ -65,6 +67,7 @@ Below is the DAG lineage ![here](https://github.com/N3zzar/End_to_end_Analytics_
 ### 5. Data Storytelling
 
 📈 [View Final Hex Dashboard](https://app.hex.tech/01975268-573e-700f-b2a8-334ff3d11792/app/0197653c-a671-7006-8804-4c569c560481/latest)
+
 
 ## 💡 Key Insights
 
@@ -120,6 +123,3 @@ Thanks to [Mentors, YouTube Channels, or Tools] that inspired this project.
 - Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
 - Find [dbt events](https://events.getdbt.com) near you
 - Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
-
-
-
