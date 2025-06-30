@@ -1,7 +1,6 @@
 # 📊 YouTube Analytics Engineering Pipeline – From Scraping to Storytelling
 > *An end-to-end analytics engineering pipeline that scrapes, stores, models, and visualizes YouTube video data — with real engagement metrics, dbt transformations, and an interactive dashboard.*  
 
-
 ## 🚀 Project Overview
 
 This project demonstrates an end-to-end analytics engineering workflow where I scraped YouTube videos related to analytics engineering tools and concepts, transformed the data using dbt Core, and visualised the insights in Hex.
@@ -10,9 +9,9 @@ The pipeline moves from raw data to insights, showcasing skills in data ingestio
 
 ## 🔍 Project Preview
 
-It is alot of documentation and may be too technical for you, so here's a quick look at the final dashboard:
+It is alot of documentation and may be too technical for you, so here's a shortcut to view the story:
 
-![dashboard-preview](images/dashboard-preview.png)
+![dashboard-preview](https://app.hex.tech/01975268-573e-700f-b2a8-334ff3d11792/app/0197653c-a671-7006-8804-4c569c560481/latest)
 
 
 ## 🧰 Tech Stack
@@ -32,19 +31,19 @@ Below is the full pipeline flow from data ingestion to dashboard:
 
 ## Project lineage
 
-You can view my documentation [here](images/dbt-dag.png)
+Below is the DAG lineage ![here](https://github.com/N3zzar/End_to_end_Analytics_Engineering_Project/blob/main/images/dbt-dag.png)
 
 ## ⚙️ Pipeline Breakdown
 
-### 1. Data Collection
+### 1. Data Extraction
 - Used YouTube Data API + Python to search for relevant videos
 - Extracted metadata: title, views, likes, comments, publish date, etc.
 - Saved to CSV for initial backup
 
-📁 [Scraping Script](./scripts/youtube_scraper.py)  
+📁 [Scraping Script](https://github.com/N3zzar/Youtube_data_project/blob/main/Code)
 📄 [Raw CSV Sample](./data/youtube_raw_data.csv)
 
-### 2. Data Storage
+### 2. Data loading
 - Uploaded CSV into local PostgreSQL instance
 
 ### 3. Data Transformation with dbt Core
@@ -63,7 +62,9 @@ You can view my documentation [here](images/dbt-dag.png)
 - Final model table sent to **Aiven PostgreSQL**
 - Aiven connected to **Hex** for live dashboards
 
-📈 [View Final Hex Dashboard](https://app.hex.tech/your-dashboard-link)
+### 5. Data Storytelling
+
+📈 [View Final Hex Dashboard](https://app.hex.tech/01975268-573e-700f-b2a8-334ff3d11792/app/0197653c-a671-7006-8804-4c569c560481/latest)
 
 ## 💡 Key Insights
 
@@ -71,7 +72,7 @@ You can view my documentation [here](images/dbt-dag.png)
 - Discovered that videos with high engagement often feature [e.g. dbt vs Airflow comparisons]
 - Engagement rate, not just views, is a better indicator of virality
 
-📊 See full analysis in the [Hex dashboard](https://app.hex.tech/your-dashboard-link)
+📊 See full analysis in the [Hex dashboard](https://app.hex.tech/01975268-573e-700f-b2a8-334ff3d11792/app/0197653c-a671-7006-8804-4c569c560481/latest)
 
 
 
