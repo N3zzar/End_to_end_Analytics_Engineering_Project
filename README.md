@@ -28,7 +28,7 @@ It is alot of documentation and may be too technical for you, so here's a quick 
 
 Below is the full pipeline flow from data ingestion to dashboard:
 
-![Pipeline Flow](path-to-your-diagram.png)
+![Pipeline Flow]((https://github.com/N3zzar/End_to_end_Analytics_Engineering_Project/blob/main/images/Pipeline%20Flow.svg)
 
 ## Project lineage
 
