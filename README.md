@@ -1,4 +1,4 @@
-# 📊 YouTube Analytics Engineering Pipeline – From Scraping to Storytelling
+# 📊 YouTube Analytics Engineering Pipeline – From Scraping to Storytelling 
 > *An end-to-end analytics engineering pipeline that scrapes, stores, models, and visualizes YouTube video data — with real engagement metrics, dbt transformations, and an interactive dashboard.*  
 
 ## 🚀 Project Overview
@@ -11,7 +11,7 @@ The pipeline moves from raw data to insights, showcasing skills in data ingestio
 
 It is alot of documentation and may be too technical for you, so here's a shortcut to view the story:
 
-[dashboard-preview](https://app.hex.tech/01975268-573e-700f-b2a8-334ff3d11792/app/0197653c-a671-7006-8804-4c569c560481/latest)
+[Final Visualization](https://app.hex.tech/01975268-573e-700f-b2a8-334ff3d11792/app/0197653c-a671-7006-8804-4c569c560481/latest)
 
 
 ## 🧰 Tech Stack
