@@ -5,7 +5,7 @@
 
 This project showcases a full-stack analytics engineering pipeline that begins with YouTube data ingestion and ends with insights delivered through interactive dashboards.
 
-It demonstrates my ability to build and manage modern ELT workflows using Python, PostgreSQL, dbt Core, Aivene and Hex — with version control, testing, and best practices embedded throughout the pipeline.
+It demonstrates my ability to build and manage modern ELT workflows using Python, PostgreSQL, dbt Core, Aiven and Hex — with version control, testing, and best practices embedded throughout the pipeline.
 
 ## 🔍 Project Preview
 
@@ -53,7 +53,7 @@ Below is the full DAG of the dbt model flow: ![here](https://github.com/N3zzar/E
 - Imported the CSV I downloaded into the local PostgreSQL instance table I had created
 
 ### 3. Data Transformation with dbt Core
-To ensure clean, reliable, and testable data transformations, I used **dbt Core** to build out a modular analytics workflow.\
+To ensure clean, reliable, and testable data transformations, I used **dbt Core** to build out a modular analytics workflow.
 
 Here's how dbt added value to the pipeline:
 - ✅ I installed and configured dbt core in my VS code, installing the necessary extensions.
