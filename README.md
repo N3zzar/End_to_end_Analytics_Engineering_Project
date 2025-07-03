@@ -58,23 +58,26 @@ To ensure clean, reliable, and testable data transformations, I used **dbt Core*
 Here's how dbt added value to the pipeline:
 - ✅ I installed and configured dbt core in my VS code, installing the necessary extensions.
 - ✅ I connected dbt core to my local PostgreSQL instance using my local credentials.
+- ✅ I used `dbt debug` to ensure my connection and configuration was successful.
 - ✅ **Model structure**: I separated logic into `staging`, `intermediate`, and `marts` layers using the modern ELT pattern.
-- ✅ **Testing**: Applied built-in dbt tests (e.g. `not_null`, `unique`, `accepted values` and `relationship integrity`) to enforce data quality rules.
-      I also created custom logic test in my marts folder where I ensured my published date was not in the future. I also ensured my video title column was not empty and not more        than 500 characters.
-- ✅ **Documentation**: Used dbt’s `docs generate` to create browsable documentation with lineage graphs. Included documentation for unique values in some columns.
-- ✅ **Reusability**: Built Jinja-powered macros for flexible metric logic (e.g., identifying viral videos based on engagement rate thresholds).
-- ✅ In order to do adhoc analysis, I created a CSV file in my `seeds` folder that contained some benchmarks that I can evaluate against.
-- ✅ In order to test what I had created in my `seeds` folder, I had to create a .sql file that selects videos that were greater than the engagement rate threshold in my `analyses` folder
+- ✅ **Testing**: Applied built-in dbt tests (e.g. `not_null`, `unique`, `accepted values` and `relationship integrity`) to enforce data quality rules in my `schema.yml` file.
+      I also wrote custom singular test in my `tests` folder where I ensured my published date was not in the future and also overly long video titles.
+- ✅ **Documentation**: Used `schema.yml` to provide column-level descriptions in my final table, provide documentation at the model and source level. Used `dbt docs generate` and `dbt docs serve` to generate model lineage for better transparency. Included a separate documentation for unique values in my date column as an `md` file which was referenced in my `schema.yml` file.
+- ✅ Exposure: This was just to document where and how my models were consumed.
+- ✅ **Reusability**: Built Jinja-powered macros in my `macros` folder that identified viral videos based on engagement rate thresholds, which was as an application of the DRY principles.
+- ✅ In order to do adhoc analysis, I created a CSV file in my `seeds` folder that contained some static benchmarks data that I can evaluate against.
+- ✅ In order to test what I had created in my `seeds` folder, I had to create a .sql file that selects videos that were greater than the engagement rate threshold in my `analyses` folder. This was a prototype SQL logic to ensure it works before using it in dbt models.
 - ✅ **Version control**: Integrated with GitHub for full change tracking across the entire dbt project.
+- ✅ I hosted my documentation on netlify app for accces.
 
 📂 Explore the dbt project:
 - [`models/staging/`](./models/staging) – Raw cleaning + formatting (This was materialized as view)
-- [`models/intermediate/`](https://github.com/N3zzar/End_to_end_Analytics_Engineering_Project/tree/main/models/intermediate) (This was materialized as view)
-- [`models/marts/`](./models/marts) – Business-ready tables  (This was materialized as table)
+- [`models/intermediate/`](./models/intermediate)- Joins and enrichment (This was materialized as view)
+- [`models/marts/`](./models/marts) – Business-ready table  (This was materialized as table)
 - [`schema.yml`](./models/schema.yml) – Tests + documentation
-- [`exposure`](./models/exposure.yml) -
+- [`exposure`](./models/exposure.yml) - Defined downstream dashboard dependencies for data governance and impact tracking purpose.
 - [`date_column documentation`](./models/date_documentation.md)
-- [`tests`](./tests) - for generic testing
+- [`tests`](./tests) - for singular testing
 - [`macros`](./macros) – Custom and reusable logic like `is_viral()`
 - [`seeds`](./seeds) - Reference threshold
 - [`analyses`](./analyses) - Exploratory SQL and adhoc analysis
@@ -119,16 +122,17 @@ This project helped me practice:
 - Navigating PostgreSQL. I've been used to MySQL.
 - Working with dbt core. (I feel I would have an easy time adapting to dbt cloud)
 - Ensuring data quality with dbt Core
-- Implementing dbt best practices (sources, staging, testing, structure, documentation)
+- Implementing dbt best practices (naming convention, sources, staging, testing, structure, documentation)
 - Connecting to GitHub for version control analytics
 - Using Hex to bridge insights and storytelling
 - Installing a cloud storage on PgAdmin
 ```
 
-### 🔮 Future Improvements
+## 🔮 Future Improvements
 ```
 - Automate scraping on a schedule
 - Add NLP on video titles/descriptions for topic clustering
+- Leverage dbt source freshness 
 - Deploy on Airbyte + dbt Cloud
 ```
 
