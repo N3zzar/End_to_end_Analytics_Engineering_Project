@@ -1,0 +1,2663 @@
+schemaVersion: 3
+meta:
+  sourceVersionId: 01979d47-22ad-700d-ae83-7bb713e70316 # DO NOT CHANGE - Hex uses this to match up project versions when reimporting the file
+  description: Not all videos are created equal. In the crowded world of data content, only a few break through the noise. This dashboard dissects the DNA of top-performing videos in the analytics engineering niche — revealing the patterns, timing, and traits that separate the hits from the hidden.
+  projectId: 0197653c-a671-7006-8804-4c569c560481 # DO NOT CHANGE - Unique ID of the project from which this file was generated
+  title: The Anatomy of a Viral Analytics Engineering Video
+  timezone: null
+  appTheme: DARK
+  codeLanguage: PYTHON
+  status:
+    name: Certified
+  categories:
+    - name: Dashboard
+    - name: Deep dive
+  castDecimalsDefault: true
+  logicQueryCacheTimeout: null
+  publishedQueryCacheTimeout: null
+  hexType: PROJECT
+  allowExecutionReordering: true
+  prerunApp: false
+  cachePublishedAppState: true
+  refreshStalePublishedApp: true
+  autoRerunApp: true
+projectAssets:
+  dataConnections: []
+  envVars: []
+  secrets: []
+sharedAssets:
+  secrets: []
+  vcsPackages: []
+  dataConnections:
+    - dataConnectionId: 0197653b-e6cf-7eed-89a1-1b1209776cbd # Postgreswarehouse (postgres)
+  externalFileIntegrations: []
+cells:
+  - cellType: MARKDOWN
+    cellId: 01979617-8e30-7bb4-b87c-12221f2df23a # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      source: "#### Picture this"
+  - cellType: TEXT
+    cellId: 01979cac-69b0-7dd5-a154-cc67b329525c # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      richText:
+        - type: blockquote
+          children:
+            - text: |-
+                You hit publish.
+                The thumbnail's clean.
+                The lighting? Solid.
+                The content? Gold — a deep dive into dbt testing strategies that no one’s really explained like this before.
+                You wait.
+                You refresh.
+
+                12 views. 1 like. No comments.
+
+                Then it hits you:
+                A sketchy walkthrough titled “Snowflake in 5 Minutes (You NEED this)” is going viral.
+                Thousands of views. Flooded with engagement.
+
+                It’s frustrating.
+                Because you know your content is better.
+
+                But on YouTube, better doesn’t always win. Smarter does.
+
+                That’s what this story is about.
+  - cellType: MARKDOWN
+    cellId: 01978908-97b0-7110-bf90-884695ef2e8f # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      source: |-
+        > You hit publish.
+
+        > The thumbnail's clean.
+
+        > The lighting? Solid.
+
+        > The content? Gold — a deep dive into dbt testing strategies that no one’s really explained like this before.
+
+        > You wait.
+
+        > You refresh.
+
+
+        > 12 views. 1 like. No comments.
+
+
+        > Then it hits you:
+
+        > A sketchy walkthrough titled “Snowflake in 5 Minutes (You NEED this)” is going viral.
+
+        > Thousands of views. Flooded with engagement.
+
+
+        > It’s frustrating.
+
+        > Because you know your content is better.
+
+
+        > But on YouTube, better doesn’t always win. Smarter does.
+
+
+        > That’s what this story is about.
+  - cellType: MARKDOWN
+    cellId: 01979623-e96d-7bb4-b889-c7021276a429 # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      source: |+
+        ### Dataset overview
+        ---
+
+  - cellType: METRIC
+    cellId: 01978799-f4dc-7554-8b3b-e4390f03b5c4 # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      title: Unique Videos
+      valueVariableName: dataframe
+      showComparison: false
+      comparisonType: VALUE
+      comparisonVariableName: null
+      comparisonFormat: null
+      comparisonLabel: ""
+      displayFormat:
+        format: NUMBER
+        currency: USD
+        columnType: NUMBER
+        showSeparators: true
+        numDecimalDigits: -1
+        abbreviateLargeNumbers: false
+      valueColumn: video_id
+      valueRowIndex: null
+      valueAggregate: CountDistinct
+      comparisonColumn: null
+      comparisonRowIndex: null
+      comparisonAggregate: null
+      valueResultVariable: value
+      comparisonResultVariable: comparison_value
+      outputResult: true
+  - cellType: INPUT
+    cellId: 0197893f-b99d-7110-bfbf-8137228cb632 # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: FROM
+    config:
+      inputType: TEXT_INPUT
+      name: input_2
+      outputType: STRING
+      options:
+        multiline: false
+      defaultValue: FROM
+  - cellType: METRIC
+    cellId: 0197879a-c805-7554-8b3c-79d3c8f40e83 # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      title: unique channel
+      valueVariableName: dataframe
+      showComparison: false
+      comparisonType: VALUE
+      comparisonVariableName: null
+      comparisonFormat: null
+      comparisonLabel: ""
+      displayFormat:
+        format: NUMBER
+        currency: USD
+        columnType: NUMBER
+        showSeparators: true
+        numDecimalDigits: -1
+        abbreviateLargeNumbers: false
+      valueColumn: channel_id
+      valueRowIndex: null
+      valueAggregate: CountDistinct
+      comparisonColumn: null
+      comparisonRowIndex: null
+      comparisonAggregate: null
+      valueResultVariable: value_2
+      comparisonResultVariable: comparison_value_2
+      outputResult: true
+  - cellType: INPUT
+    cellId: 01978946-92fd-7110-bfe1-ffb815070d04 # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: ACROSS
+    config:
+      inputType: TEXT_INPUT
+      name: Aacross
+      outputType: STRING
+      options:
+        multiline: false
+      defaultValue: ACROSS
+  - cellType: METRIC
+    cellId: 019787f1-6ca4-7554-8b43-2942ffdcbb56 # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      title: Years covered
+      valueVariableName: dataframe
+      showComparison: false
+      comparisonType: VALUE
+      comparisonVariableName: null
+      comparisonFormat: null
+      comparisonLabel: ""
+      displayFormat:
+        format: NUMBER
+        currency: USD
+        columnType: NUMBER
+        showSeparators: true
+        numDecimalDigits: -1
+        abbreviateLargeNumbers: false
+      valueColumn: published_year
+      valueRowIndex: null
+      valueAggregate: CountDistinct
+      comparisonColumn: null
+      comparisonRowIndex: null
+      comparisonAggregate: null
+      valueResultVariable: value_3
+      comparisonResultVariable: comparison_value_3
+      outputResult: true
+  - cellType: MARKDOWN
+    cellId: 0197890c-29f6-7110-bf93-ef11db17f6e4 # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      source: |-
+        I pulled performance data from hundreds of videos in the analytics engineering space — covering tools and concepts like dbt, Airflow, Snowflake and what not — and asked one simple question:
+
+        > *What makes some videos take off while others disappear into the void?*
+
+        The answers?
+
+        - They’re not just interesting.
+
+        - They’re tactical. 
+
+        - They’re surprising. 
+
+        **And they might just change how you approach your next upload.**
+  - cellType: MARKDOWN
+    cellId: 01979626-47ff-7bb4-b898-4fb5603f0db5 # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      source: |-
+        ### Performance Snapshots
+        ---
+  - cellType: METRIC
+    cellId: 01979626-e310-7bb4-b899-39ab6459efdc # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      title: Total Views Covered
+      valueVariableName: dataframe
+      showComparison: false
+      comparisonType: VALUE
+      comparisonVariableName: null
+      comparisonFormat: null
+      comparisonLabel: ""
+      displayFormat:
+        format: NUMBER
+        currency: USD
+        columnType: NUMBER
+        showSeparators: true
+        numDecimalDigits: -1
+        abbreviateLargeNumbers: false
+      valueColumn: view_count
+      valueRowIndex: null
+      valueAggregate: Sum
+      comparisonColumn: null
+      comparisonRowIndex: null
+      comparisonAggregate: null
+      valueResultVariable: value_4
+      comparisonResultVariable: comparison_value_4
+      outputResult: true
+  - cellType: METRIC
+    cellId: 01979628-e1c0-7bb4-b89a-cb01c1a3a97e # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      title: Total Likes
+      valueVariableName: dataframe
+      showComparison: false
+      comparisonType: VALUE
+      comparisonVariableName: null
+      comparisonFormat: null
+      comparisonLabel: ""
+      displayFormat:
+        format: NUMBER
+        currency: USD
+        columnType: NUMBER
+        showSeparators: true
+        numDecimalDigits: -1
+        abbreviateLargeNumbers: false
+      valueColumn: like_count
+      valueRowIndex: null
+      valueAggregate: Sum
+      comparisonColumn: null
+      comparisonRowIndex: null
+      comparisonAggregate: null
+      valueResultVariable: value_5
+      comparisonResultVariable: comparison_value_5
+      outputResult: true
+  - cellType: METRIC
+    cellId: 01979629-63c6-7bb4-b89b-95c5187d2698 # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      title: Total Comments
+      valueVariableName: dataframe
+      showComparison: false
+      comparisonType: VALUE
+      comparisonVariableName: null
+      comparisonFormat: null
+      comparisonLabel: ""
+      displayFormat:
+        format: NUMBER
+        currency: USD
+        columnType: NUMBER
+        showSeparators: true
+        numDecimalDigits: -1
+        abbreviateLargeNumbers: false
+      valueColumn: comment_count
+      valueRowIndex: null
+      valueAggregate: Sum
+      comparisonColumn: null
+      comparisonRowIndex: null
+      comparisonAggregate: null
+      valueResultVariable: value_6
+      comparisonResultVariable: comparison_value_6
+      outputResult: true
+  - cellType: METRIC
+    cellId: 0197962a-14b1-7bb4-b89c-37cf188be23a # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      title: Avg Views per video
+      valueVariableName: dataframe
+      showComparison: false
+      comparisonType: VALUE
+      comparisonVariableName: null
+      comparisonFormat: null
+      comparisonLabel: ""
+      displayFormat:
+        format: NUMBER
+        currency: USD
+        columnType: NUMBER
+        showSeparators: false
+        numDecimalDigits: 0
+        abbreviateLargeNumbers: true
+      valueColumn: channel_rate
+      valueRowIndex: null
+      valueAggregate: Avg
+      comparisonColumn: null
+      comparisonRowIndex: null
+      comparisonAggregate: null
+      valueResultVariable: value_7
+      comparisonResultVariable: comparison_value_7
+      outputResult: true
+  - cellType: TEXT
+    cellId: 0197962e-e05e-7bb4-b89d-5d89d13a4d30 # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      richText:
+        - type: paragraph
+          children:
+            - text: "These KPIs reflect the performance scope of the dataset — from total views and likes to average engagement. They help frame the upcoming analysis by establishing how representative or skewed the data might be when we start slicing it by virality. "
+  - cellType: MARKDOWN
+    cellId: 0197890d-d1cd-7110-bf96-076dc26c4ada # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      source: |-
+        # So what really makes a video go viral while others fade into the void?
+
+        ---
+
+        Viral = More than 5000 views, and an engagement rate of at least 25%.
+  - cellType: CHARTV2
+    cellId: 01977e21-6f90-7bb1-a23d-cb2927f60020 # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      height: null
+      chartSpec:
+        type: layered
+        layers:
+          - id: 01977e21-6f90-7bb1-a23d-afbd5cc3023f
+            xAxis:
+              type: string
+              style:
+                grid:
+                  style: solid
+                ticks: {}
+                labels: {}
+              dataFrameColumn: is_viral
+            series:
+              - id: 01977e21-8daf-7bb1-a23e-29890ffc17aa
+                type: pie
+                axis:
+                  type: string
+                  style:
+                    grid:
+                      style: solid
+                    ticks: {}
+                    labels: {}
+                  aggregate: count
+                  referenceLines: []
+                dataFrameColumns:
+                  - video_title
+                colorDataFrameColumn: is_viral
+                colorOrder: -y
+                color:
+                  type: series
+                  colorsBySeriesValues:
+                    "true": "#F58518"
+                    "false": "#3F4257"
+                opacity:
+                  type: series
+                  opacitiesBySeriesValues:
+                    "false": 0.5
+                tooltip:
+                  type: custom
+                  fields: []
+                  includeAuto: true
+                dataLabels:
+                  angle: 0
+                  position: inside-center
+                legendTitle: Is viral
+                radius: 50
+                showAsPct: true
+            dataFrame: dataframe
+        settings:
+          font:
+            baseSize: 11
+          legend:
+            position: top-right
+          tooltip: true
+          selectionEnabled: false
+      chartSelection: {}
+      colorMappings:
+        "true": "#F58518"
+        "false": "#4C78A8"
+      resultVariable: chart_result_2
+      outputResult: false
+      displayType: CHART
+      displayTableConfig: null
+  - cellType: MARKDOWN
+    cellId: 0197890f-b87e-7110-bf97-19e34f048d5a # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      source: |-
+        Virality isn’t random — but it’s not common either.
+
+        Out of hundreds of videos, only 4% broke through.
+
+        But those 31 high-performers?
+
+        They weren’t lucky.
+
+        They followed patterns — real, measurable ones — that show up again and again.
+
+        And you are about to see those patterns.
+  - cellType: MARKDOWN
+    cellId: 01979813-f9b4-7440-8e92-1148ad1345df # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      source: |
+        ## #1 The Myth of Subscriber Count
+
+        ---
+
+        If you think more subscribers means more viral videos, you’re not alone.
+
+        But when we looked at the data, something strange happened:
+
+        Subscriber count? Apparently it wasn’t the clearest predictor of virality.
+  - cellType: CHARTV2
+    cellId: 01977e23-fca9-7bb1-a23f-843503561d15 # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      height: null
+      chartSpec:
+        type: layered
+        facet: {}
+        layers:
+          - id: 01977e23-fca8-7bb1-a23f-5ec755da43b8
+            xAxis:
+              type: string
+              style:
+                grid:
+                  style: none
+                ticks: {}
+                labels:
+                  angle: 0
+              title: Channel size
+              hideTitle: false
+              dataFrameColumn: channel_size
+            series:
+              - id: 01977e24-0358-7bb1-a23f-ca8cbb879c27
+                type: bar
+                axis:
+                  type: string
+                  style:
+                    grid:
+                      style: none
+                    zero: true
+                    ticks: {}
+                    labels: {}
+                  title: Viral videos count
+                  aggregate: count
+                  referenceLines: []
+                dataFrameColumns:
+                  - video_id
+                colorDataFrameColumn: channel_size
+                colorOrder: y
+                color:
+                  type: series
+                  dataType: string
+                  colorsBySeriesValues:
+                    large: "#F58518"
+                    small: "#F58518"
+                    medium: "#F58518"
+                opacity:
+                  type: series
+                  opacitiesBySeriesValues:
+                    large: 0.25
+                    medium: 0.5
+                tooltip:
+                  type: custom
+                  fields: []
+                  includeAuto: true
+                totalDataLabels:
+                  position: outside-end
+                barWidth: 1
+                orientation: vertical
+                layout: stacked
+            dataFrame: dataframe
+        settings:
+          legend:
+            position: top-left
+          tooltip: true
+          selectionEnabled: false
+      chartSelection: {}
+      colorMappings:
+        large: "#4C78A8"
+        small: "#E45756"
+        Agatha: "#4C78A8"
+        medium: "#F58518"
+        Airbyte: "#F58518"
+        BugBytes: "#F58518"
+        Fireship: "#EECA3B"
+        ByteCoach: "#E45756"
+        CodeSeoul: "#54A24B"
+        ByteByteGo: "#72B7B2"
+        MotherDuck: "#F58518"
+        Tech Coach: "#72B7B2"
+        codebasics: "#4C78A8"
+        Deep Charts: "#FF9DA6"
+        Ankit Bansal: "#E45756"
+        Luke J Byrne: "#FF9DA6"
+        Luke Barousse: "#B279A2"
+        Manish Sharma: "#4C78A8"
+        Code With Mani: "#72B7B2"
+        Data with Zach: "#EECA3B"
+        DecisionForest: "#B279A2"
+        Data with Baraa: "#54A24B"
+        John Nelson Maps: "#9D755D"
+        Seattle Data Guy: "#9D755D"
+        "Sunjana in Data ": "#E45756"
+        The Big Data Show: "#54A24B"
+        "Traidev Official ": "#BAB0AC"
+        Advancing Analytics: "#4C78A8"
+        Learnomate Technologies: "#BAB0AC"
+        UC3MacZztdpkSzs4aHDLLwYw: "#4C78A8"
+        UC8_RSKwbU1OmZWNEoLV1tQg: "#F58518"
+        UCLLw7jmFsvfIVaUFsLs8mlQ: "#E45756"
+        UCQ_JWEFzs1_INqdhIO3kmrw: "#72B7B2"
+        UCU-aPpP8BxAd4mDoP0OL4jQ: "#54A24B"
+        UCZgt6AzoyjslHTC9dz0UoTw: "#EECA3B"
+        UCh9nVJoWXmFb7sLApWGcLPQ: "#B279A2"
+        UCk7NcgnqCmui1AV7MTXZwOw: "#FF9DA6"
+        UCmLGJ3VYBcfRaWbP6JLJcpA: "#9D755D"
+        UCoaAe6ighxrzJuHeFPAlCeA: "#BAB0AC"
+        UCsBjURrPoezykLs9EqgamOA: "#4C78A8"
+      resultVariable: chart_result_3
+      outputResult: true
+      displayType: CHART
+      displayTableConfig:
+        pageSize: 50
+        height: null
+        hideIcons: false
+        defaultColumnWidth: null
+        hideIndex: false
+        defaultSortColumn: null
+        defaultSortIndexColumn: null
+        defaultSortDirection: ASC
+        conditionalFormatting: null
+        calcs: null
+        filters:
+          - column: is_viral
+            fieldType: COLUMN
+            predicate:
+              op: IS_TRUE
+            queryPath: []
+            columnType: BOOLEAN
+        columnProperties: []
+        columnOrdering: null
+        customColumnOrdering: null
+        pinnedColumns: null
+        hiddenColumns: null
+        pinIndexColumns: false
+        showAggregations: false
+        columnAggregations: null
+  - cellType: SQL
+    cellId: 01979b19-8bd8-7996-ae68-2117470a2567 # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      source: |-
+        select channel_name, subscriber_count, view_count
+        from analytics.fct_videos_performance
+        where channel_size = 'large'
+        order by view_count asc
+      dataFrameCell: false
+      dataConnectionId: 0197653b-e6cf-7eed-89a1-1b1209776cbd
+      resultVariableName: dataframe_8
+      useRichDisplay: true
+      sqlCellOutputType: PANDAS
+      useQueryMode: false
+      castDecimals: true
+      useNativeDates: true
+      outputFilteredResult: true
+      allowDuplicateColumns: false
+      tableDisplayConfig:
+        pageSize: 50
+        height: null
+        hideIcons: false
+        defaultColumnWidth: null
+        hideIndex: false
+        defaultSortColumn: null
+        defaultSortIndexColumn: null
+        defaultSortDirection: ASC
+        conditionalFormatting: null
+        calcs: null
+        filters: null
+        columnProperties:
+          - originalName: channel_name
+            renameTo: null
+            size: 134
+            wrapText: null
+            displayFormat: null
+          - originalName: row-index-0
+            renameTo: null
+            size: 39
+            wrapText: null
+            displayFormat: null
+          - originalName: subscriber_count
+            renameTo: null
+            size: 144
+            wrapText: null
+            displayFormat: null
+          - originalName: view_count
+            renameTo: null
+            size: 113
+            wrapText: null
+            displayFormat: null
+        columnOrdering: null
+        customColumnOrdering: null
+        pinnedColumns: null
+        hiddenColumns: null
+        pinIndexColumns: false
+        showAggregations: false
+        columnAggregations: null
+  - cellType: MARKDOWN
+    cellId: 01978912-b335-7110-bf99-6033da7d8a7b # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      source: |-
+        The data doesn’t lie: **Viral videos aren’t reserved for large channels.**
+
+        In fact, most of them came from creators with fewer than 100,000 subscribers (in the small channel size category)
+
+        Meanwhile, some channels with over 100,000 subs barely broke 20,000 views.
+
+        **Subscriber count isn’t the engine — it’s the fuel. But if the car (your video) isn’t built right, it’s not going anywhere.**
+
+        That means smaller creators aren’t at a disadvantage — they’re just one good video away from explosive growth.
+  - cellType: MARKDOWN
+    cellId: 01979813-8c99-7440-8e90-4451544766b4 # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      source: "### Case Study: Two Creators, Five Viral Hits
+
+
+        ---
+
+
+        Subscriber count wasn’t the only surprise.
+
+
+        Among the small channels, we found two creators who didn’t just strike gold once — \ 
+
+        they did it **multiple times**.
+
+
+        Five different videos. All viral. Same creators.
+
+        \  "
+  - cellType: CHARTV2
+    cellId: 01978915-44fc-7110-bf9b-2883a7b130ce # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      height: null
+      chartSpec:
+        type: layered
+        facet: {}
+        layers:
+          - id: 01977e23-fca8-7bb1-a23f-5ec755da43b8
+            xAxis:
+              type: string
+              style:
+                grid:
+                  style: none
+                ticks: {}
+                labels:
+                  angle: 0
+              hideTitle: true
+              dataFrameColumn: channel_size
+            series:
+              - id: 01977e24-0358-7bb1-a23f-ca8cbb879c27
+                type: bar
+                axis:
+                  type: string
+                  style:
+                    grid:
+                      style: none
+                    ticks: {}
+                    labels: {}
+                  title: Viral videos count
+                  aggregate: count
+                  hideTitle: false
+                  referenceLines: []
+                dataFrameColumns:
+                  - video_id
+                colorDataFrameColumn: channel_name
+                colorOrder: y
+                color:
+                  type: series
+                  dataType: string
+                  colorsBySeriesValues:
+                    Agatha: "#3F4257"
+                    BugBytes: "#3F4257"
+                    ByteCoach: "#3F4257"
+                    CodeSeoul: "#3F4257"
+                    MotherDuck: "#3F4257"
+                    Tech Coach: "#3F4257"
+                    Deep Charts: "#3F4257"
+                    Luke J Byrne: "#3F4257"
+                    Code With Mani: "#3F4257"
+                    DecisionForest: "#3F4257"
+                    Data with Baraa: "#4C78A8"
+                    John Nelson Maps: "#3F4257"
+                    "Sunjana in Data ": "#3F4257"
+                    "Traidev Official ": "#3F4257"
+                    Advancing Analytics: "#3F4257"
+                    Learnomate Technologies: "#3F4257"
+                opacity:
+                  type: series
+                  opacitiesBySeriesValues: {}
+                tooltip:
+                  type: custom
+                  fields:
+                    - id: 01978808-2b05-7554-8b47-dfeaf08871e5
+                      type: number
+                      aggregate: average
+                      dataFrameColumn: engagement_rate
+                  includeAuto: true
+                dataLabels:
+                  position: inside-end
+                barWidth: 1
+                orientation: vertical
+                layout: stacked
+            dataFrame: dataframe
+        settings:
+          legend:
+            position: right
+          tooltip: true
+          baseAxisSize: container
+          selectionEnabled: false
+      chartSelection: {}
+      colorMappings:
+        large: "#4C78A8"
+        small: "#E45756"
+        Agatha: "#4C78A8"
+        medium: "#F58518"
+        Airbyte: "#F58518"
+        BugBytes: "#F58518"
+        Fireship: "#EECA3B"
+        ByteCoach: "#E45756"
+        CodeSeoul: "#54A24B"
+        ByteByteGo: "#72B7B2"
+        MotherDuck: "#F58518"
+        Tech Coach: "#72B7B2"
+        codebasics: "#4C78A8"
+        Deep Charts: "#FF9DA6"
+        Ankit Bansal: "#E45756"
+        Luke J Byrne: "#FF9DA6"
+        Luke Barousse: "#B279A2"
+        Manish Sharma: "#4C78A8"
+        Code With Mani: "#72B7B2"
+        Data with Zach: "#EECA3B"
+        DecisionForest: "#B279A2"
+        Data with Baraa: "#54A24B"
+        John Nelson Maps: "#9D755D"
+        Seattle Data Guy: "#9D755D"
+        "Sunjana in Data ": "#E45756"
+        The Big Data Show: "#54A24B"
+        "Traidev Official ": "#BAB0AC"
+        Advancing Analytics: "#4C78A8"
+        Learnomate Technologies: "#BAB0AC"
+        UC3MacZztdpkSzs4aHDLLwYw: "#4C78A8"
+        UC8_RSKwbU1OmZWNEoLV1tQg: "#F58518"
+        UCLLw7jmFsvfIVaUFsLs8mlQ: "#E45756"
+        UCQ_JWEFzs1_INqdhIO3kmrw: "#72B7B2"
+        UCU-aPpP8BxAd4mDoP0OL4jQ: "#54A24B"
+        UCZgt6AzoyjslHTC9dz0UoTw: "#EECA3B"
+        UCh9nVJoWXmFb7sLApWGcLPQ: "#B279A2"
+        UCk7NcgnqCmui1AV7MTXZwOw: "#FF9DA6"
+        UCmLGJ3VYBcfRaWbP6JLJcpA: "#9D755D"
+        UCoaAe6ighxrzJuHeFPAlCeA: "#BAB0AC"
+        UCsBjURrPoezykLs9EqgamOA: "#4C78A8"
+      resultVariable: chart_result_9
+      outputResult: true
+      displayType: CHART
+      displayTableConfig:
+        pageSize: 50
+        height: null
+        hideIcons: false
+        defaultColumnWidth: null
+        hideIndex: false
+        defaultSortColumn: null
+        defaultSortIndexColumn: null
+        defaultSortDirection: ASC
+        conditionalFormatting: null
+        calcs: null
+        filters:
+          - column: is_viral
+            fieldType: COLUMN
+            predicate:
+              op: IS_TRUE
+            queryPath: []
+            columnType: BOOLEAN
+          - column: channel_size
+            fieldType: COLUMN
+            predicate:
+              op: EQ
+              arg: small
+            queryPath: []
+            columnType: STRING
+        columnProperties: []
+        columnOrdering: null
+        customColumnOrdering: null
+        pinnedColumns: null
+        hiddenColumns: null
+        pinIndexColumns: false
+        showAggregations: false
+        columnAggregations: null
+  - cellType: MARKDOWN
+    cellId: 01978916-e298-7110-bf9c-1b0d38dbf319 # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      source: |
+        One creator (Airbyte) scored all three viral hits in 2023.
+        Another (Data with Baraa) landed two viral videos just this year.
+
+        This isn’t luck. It’s a pattern — a blueprint emerging right before our eyes.
+
+        And when you compare these channels side-by-side, that blueprint isn’t just about going viral — it’s about building videos that deliver repeatable impact.
+
+        So here’s the real question:
+
+        > **Not ‘Can I go viral?’ — but ‘How do I create videos that keep performing, time after time?’**
+  - cellType: MARKDOWN
+    cellId: 0197892e-8958-7110-bfab-7453fcab3689 # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      source: |-
+        #### A side by side comparison
+        ---
+        Here’s a side-by-side look at how these two creators crack the code —
+        the key metrics and video traits that powered multiple viral hits.
+  - cellType: INPUT
+    cellId: 01978924-0df8-7110-bfa8-3a3dbccd05b1 # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      inputType: TABLE
+      name: input_1
+      outputType: DATA_FRAME
+      options: null
+      defaultValue:
+        headers:
+          - id: 01978924-0fb4-7110-bfa8-6d7724fe1c35
+            type: STRING
+            columnName: Metrics
+          - id: 01978924-0fb4-7110-bfa8-751bad8ece14
+            type: STRING
+            columnName: Data with Baraa
+          - id: 01978924-0fb4-7110-bfa8-7c5ac2547efc
+            type: STRING
+            columnName: Airbyte
+        contents:
+          01978924-0fb4-7110-bfa8-6d7724fe1c35:
+            - Avg View count per viral video
+            - like_count
+            - Avg comment count
+            - Avg engagement rate
+            - Avg Video Length
+          01978924-0fb4-7110-bfa8-751bad8ece14:
+            - 210,594
+            - "8073"
+            - "610"
+            - "0.04"
+            - "66"
+          01978924-0fb4-7110-bfa8-7c5ac2547efc:
+            - "6715"
+            - "322"
+            - "2"
+            - "0.01"
+            - "39"
+        rowCount: 5
+        totalRowCount: 5
+  - cellType: BLOCK
+    cellId: 01979ae2-fbe0-7996-ae1c-c3dda198e2cf # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      blockConfig:
+        sqlCellId: 01977e2a-0e98-7bb1-a241-6c720aa2a257
+        chartCellId: 01979ae2-fbdf-7996-ae1c-afcd0f8701b5
+        activeTab: display
+      cells:
+        - cellType: SQL
+          cellId: 01977e2a-0e98-7bb1-a241-6c720aa2a257
+          cellLabel: null
+          config:
+            source: |-
+              SELECT 
+                channel_name, 
+                subscriber_count, 
+                video_title,
+                length(video_title) as video_title_length, 
+                engagement_tier,
+                published_day_name,
+                published_month_name,
+                published_year
+              FROM analytics.fct_videos_performance
+              WHERE is_viral IS TRUE
+                  AND channel_size = 'small'
+                  AND channel_name IN ('Airbyte', 'Data with Baraa')
+              ORDER BY channel_name ;
+            dataFrameCell: false
+            dataConnectionId: 0197653b-e6cf-7eed-89a1-1b1209776cbd
+            resultVariableName: dataframe_5
+            useRichDisplay: true
+            sqlCellOutputType: PANDAS
+            useQueryMode: false
+            castDecimals: true
+            useNativeDates: true
+            outputFilteredResult: true
+            allowDuplicateColumns: false
+            tableDisplayConfig:
+              pageSize: 50
+              height: 141
+              hideIcons: false
+              defaultColumnWidth: null
+              hideIndex: true
+              defaultSortColumn: null
+              defaultSortIndexColumn: null
+              defaultSortDirection: ASC
+              conditionalFormatting:
+                rulesets:
+                  - type: GRADIENT
+                    style: WHITE_BLUE
+                    columns:
+                      type: EXCLUDE
+                      excludedColumns: []
+              calcs: null
+              filters: null
+              columnProperties:
+                - originalName: channel
+                  renameTo: null
+                  size: null
+                  wrapText: null
+                  displayFormat: null
+                - originalName: channel_name
+                  renameTo: null
+                  size: 134
+                  wrapText: null
+                  displayFormat: null
+                - originalName: channel_title
+                  renameTo: null
+                  size: null
+                  wrapText: null
+                  displayFormat: null
+                - originalName: comment_count
+                  renameTo: null
+                  size: null
+                  wrapText: null
+                  displayFormat: null
+                - originalName: comments_amount
+                  renameTo: null
+                  size: null
+                  wrapText: null
+                  displayFormat: null
+                - originalName: engagement_tier
+                  renameTo: null
+                  size: 144
+                  wrapText: null
+                  displayFormat: null
+                - originalName: is_viral
+                  renameTo: null
+                  size: null
+                  wrapText: null
+                  displayFormat: null
+                - originalName: like_count
+                  renameTo: null
+                  size: null
+                  wrapText: null
+                  displayFormat: null
+                - originalName: likes
+                  renameTo: null
+                  size: null
+                  wrapText: null
+                  displayFormat: null
+                - originalName: published_date
+                  renameTo: null
+                  size: null
+                  wrapText: null
+                  displayFormat: null
+                - originalName: published_day_name
+                  renameTo: null
+                  size: 167
+                  wrapText: null
+                  displayFormat: null
+                - originalName: published_month_name
+                  renameTo: null
+                  size: 184
+                  wrapText: null
+                  displayFormat: null
+                - originalName: published_year
+                  renameTo: null
+                  size: 135
+                  wrapText: null
+                  displayFormat: null
+                - originalName: row-index-0
+                  renameTo: null
+                  size: 39
+                  wrapText: null
+                  displayFormat: null
+                - originalName: subscriber_count
+                  renameTo: null
+                  size: 144
+                  wrapText: null
+                  displayFormat: null
+                - originalName: subscribers
+                  renameTo: null
+                  size: null
+                  wrapText: null
+                  displayFormat: null
+                - originalName: video
+                  renameTo: null
+                  size: null
+                  wrapText: null
+                  displayFormat: null
+                - originalName: video_title
+                  renameTo: null
+                  size: 400
+                  wrapText: null
+                  displayFormat: null
+                - originalName: video_title_length
+                  renameTo: null
+                  size: 148
+                  wrapText: null
+                  displayFormat: null
+                - originalName: view_count
+                  renameTo: null
+                  size: null
+                  wrapText: null
+                  displayFormat: null
+                - originalName: views
+                  renameTo: null
+                  size: null
+                  wrapText: null
+                  displayFormat: null
+              columnOrdering: null
+              customColumnOrdering:
+                - channel_name
+                - subscriber_count
+                - video_title
+                - video_title_length
+                - engagement_tier
+                - published_month_name
+                - published_day_name
+                - published_year
+              pinnedColumns: null
+              hiddenColumns: null
+              pinIndexColumns: false
+              showAggregations: false
+              columnAggregations: null
+        - cellType: CHARTV2
+          cellId: 01979ae2-fbdf-7996-ae1c-afcd0f8701b5
+          cellLabel: null
+          config:
+            height: null
+            chartSpec:
+              type: layered
+              layers:
+                - id: 01979ae2-fb7e-7996-ae1c-818e760e16c9
+                  xAxis:
+                    type: string
+                    style:
+                      grid:
+                        style: solid
+                      ticks: {}
+                      labels: {}
+                    dataFrameColumn: engagement_tier
+                  series:
+                    - id: 01979ae3-0747-7996-ae1d-2aff618f7d77
+                      type: bar
+                      axis:
+                        type: number
+                        style:
+                          grid:
+                            style: solid
+                          ticks: {}
+                          labels: {}
+                        aggregate: sum
+                      dataFrameColumns:
+                        - subscriber_count
+                      colorOrder: ascending
+                      color:
+                        type: static
+                      opacity:
+                        type: static
+                        value: 1
+                      tooltip:
+                        type: auto
+                      barWidth: 1
+                      orientation: vertical
+                      layout: stacked
+                  dataFrame: dataframe_5
+              settings:
+                legend:
+                  position: right
+                tooltip: true
+                selectionEnabled: false
+            chartSelection: {}
+            colorMappings: {}
+            resultVariable: chart_result
+            outputResult: false
+            displayType: CHART
+            displayTableConfig: null
+  - cellType: BLOCK
+    cellId: 01978a93-9d27-7aab-9d4d-bb2c4cde6343 # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      blockConfig:
+        sqlCellId: 01978816-ce5b-7554-8b48-c1fb4b714593
+        chartCellId: 01978a93-9d27-7aab-9d4d-a5b4830d1cbe
+        activeTab: display
+      cells:
+        - cellType: SQL
+          cellId: 01978816-ce5b-7554-8b48-c1fb4b714593
+          cellLabel: Average Title Lengths
+          config:
+            source: |-
+              SELECT channel_name, avg(engagement_rate) as avg
+              FROM analytics."fct_videos_performance"
+              WHERE channel_name IN ('Airbyte', 'Data with Baraa')
+              GROUP BY channel_name
+            dataFrameCell: false
+            dataConnectionId: 0197653b-e6cf-7eed-89a1-1b1209776cbd
+            resultVariableName: dataframe_7
+            useRichDisplay: true
+            sqlCellOutputType: PANDAS
+            useQueryMode: false
+            castDecimals: true
+            useNativeDates: true
+            outputFilteredResult: true
+            allowDuplicateColumns: false
+            tableDisplayConfig:
+              pageSize: 50
+              height: null
+              hideIcons: true
+              defaultColumnWidth: null
+              hideIndex: true
+              defaultSortColumn: null
+              defaultSortIndexColumn: null
+              defaultSortDirection: ASC
+              conditionalFormatting: null
+              calcs: null
+              filters: null
+              columnProperties:
+                - originalName: avg
+                  renameTo: null
+                  size: 179
+                  wrapText: null
+                  displayFormat: null
+                - originalName: channel_name
+                  renameTo: null
+                  size: 132
+                  wrapText: null
+                  displayFormat: null
+                - originalName: row-index-0
+                  renameTo: null
+                  size: 28
+                  wrapText: null
+                  displayFormat: null
+                - originalName: video_count
+                  renameTo: null
+                  size: 117
+                  wrapText: null
+                  displayFormat: null
+                - originalName: video_title_length
+                  renameTo: null
+                  size: 129
+                  wrapText: null
+                  displayFormat: null
+              columnOrdering: null
+              customColumnOrdering: null
+              pinnedColumns: null
+              hiddenColumns: null
+              pinIndexColumns: false
+              showAggregations: false
+              columnAggregations: null
+        - cellType: CHARTV2
+          cellId: 01978a93-9d27-7aab-9d4d-a5b4830d1cbe
+          cellLabel: Average Title Lengths
+          config:
+            height: null
+            chartSpec:
+              type: layered
+              layers:
+                - id: 01978a93-9d25-7aab-9d4d-79ca10103e92
+                  xAxis:
+                    type: string
+                    style:
+                      grid:
+                        style: solid
+                      ticks: {}
+                      labels: {}
+                    dataFrameColumn: channel_name
+                  series:
+                    - id: 01978a93-af0a-7aab-9d4e-2aeb35283ed7
+                      type: bar
+                      axis:
+                        type: number
+                        style:
+                          grid:
+                            style: solid
+                          ticks: {}
+                          labels: {}
+                        aggregate: sum
+                      dataFrameColumns:
+                        - video_count
+                      colorOrder: ascending
+                      color:
+                        type: static
+                      opacity:
+                        type: static
+                        value: 1
+                      tooltip:
+                        type: auto
+                      barWidth: 1
+                      orientation: vertical
+                      layout: stacked
+                  dataFrame: dataframe_7
+              settings:
+                legend:
+                  position: right
+                tooltip: true
+                selectionEnabled: false
+            chartSelection: {}
+            colorMappings: {}
+            resultVariable: chart_result
+            outputResult: false
+            displayType: CHART
+            displayTableConfig: null
+  - cellType: MARKDOWN
+    cellId: 01979abc-70ba-7996-adf6-c8b82dee534b # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      source: |
+        These traits got the videos into the top 5% viral vdieos:
+
+
+        ✅ **Higher like ratio**  
+        They had significantly higher like-to-view ratios.  
+
+        📌 **How they likely earned it:** 
+        - Strong opening hooks around relatable pain points that immediately told viewers: “This is worth watching.”  
+        - Clear structure and delivery — people like content that respects their time.  
+        - It was a content-audience fit at that time.
+
+        👍 When you deliver clarity fast, people repay with the like button.
+
+        ---
+
+        ✅ **More Comment Activity**  
+        This signals emotional intensity,not just approval.  
+
+        📌 **How they likely earned it:** 
+        - There might be community involvement.
+        - Asked *direct*, *targeted* questions in the middle or end of the video.  
+        - Sparked debates (“Is dbt overhyped?”) or curiosity (“What tool would YOU use instead?”).
+
+        💬 Comments spike when viewers feel seen *and* have something to say back.
+
+        ---
+
+        ✅ **Engagement Rates Off the Charts**  
+        When you combine likes, comments, and views? These videos stood out. 
+
+        📌 **How they likely earned it:** 
+        - Included CTAs that weren’t just “Like & Subscribe” but **contextual** (“If this saved you 3 hours, give it a like”).
+        - Their content attracted the right people.
+        - Used editing patterns that kept visual interest high (cuts, zooms, on-screen text).
+
+        ---
+  - cellType: MARKDOWN
+    cellId: 01979b04-cc60-7996-ae3c-4c0c0fe4761b # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      source: All these metrics got them into the 5% viral vdieos.
+  - cellType: MARKDOWN
+    cellId: 0197892f-8c31-7110-bfac-8cddcb95bcda # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      source: |-
+        
+        ## #2 The Calendar Advantage: When Viral Videos Drop
+
+        ---
+
+        Timing can make or break a video’s chance at virality.  
+        When you post isn’t just scheduling — it’s strategy.  
+        The top-performing creators know this, and they play the clock like pros.
+  - cellType: CHARTV2
+    cellId: 01977e4e-ce80-7bb1-a261-498d10481559 # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      height: null
+      chartSpec:
+        type: layered
+        layers:
+          - id: 01977e4e-ce7e-7bb1-a261-21d41e7da5c9
+            xAxis:
+              sort:
+                - Sunday
+                - Monday
+                - Tuesday
+                - Wednesday
+                - Thursday
+                - Friday
+                - Saturday
+              type: string
+              style:
+                grid:
+                  style: dash
+                ticks: {}
+                labels:
+                  angle: 0
+              title: Day
+              dataFrameColumn: published_day_name
+            series:
+              - id: 01977e4e-d7b3-7bb1-a261-8746a64e3347
+                name: Maximum Engagement Rate
+                type: line
+                axis:
+                  type: number
+                  style:
+                    grid:
+                      style: dash
+                    ticks: {}
+                    labels: {}
+                  title: Max engagement rate
+                  aggregate: max
+                dataFrameColumns:
+                  - engagement_rate
+                colorOrder: ascending
+                color:
+                  type: static
+                  colorsBySeriesValues: {}
+                opacity:
+                  type: static
+                  value: 1
+                tooltip:
+                  type: auto
+                dataLabels:
+                  position: auto
+                point: true
+                interpolate: monotone
+                stroke: dashed
+              - id: 01978803-0d95-7554-8b46-ea365f70e787
+                name: Viral videos
+                type: line
+                axis:
+                  type: string
+                  style:
+                    grid:
+                      style: dash
+                    ticks: {}
+                    labels: {}
+                  title: Viral videos count
+                  aggregate: count
+                dataFrameColumns:
+                  - video_id
+                colorOrder: ascending
+                color:
+                  type: static
+                  color: "#F58518"
+                opacity:
+                  type: static
+                  value: 1
+                tooltip:
+                  type: auto
+                dataLabels:
+                  position: auto
+                point: true
+                interpolate: monotone
+                stroke: solid
+            dataFrame: dataframe
+            seriesGroups:
+              - - 01977e4e-d7b3-7bb1-a261-8746a64e3347
+              - - 01978803-0d95-7554-8b46-ea365f70e787
+        settings:
+          legend:
+            position: top-right
+          tooltip: true
+          selectionEnabled: false
+      chartSelection: {}
+      colorMappings:
+        channel_id: "#4C78A8"
+        engagement_rate: "#F58518"
+      resultVariable: chart_result_7
+      outputResult: true
+      displayType: CHART
+      displayTableConfig:
+        pageSize: 50
+        height: null
+        hideIcons: false
+        defaultColumnWidth: null
+        hideIndex: false
+        defaultSortColumn: null
+        defaultSortIndexColumn: null
+        defaultSortDirection: ASC
+        conditionalFormatting: null
+        calcs: null
+        filters:
+          - column: is_viral
+            fieldType: COLUMN
+            predicate:
+              op: IS_TRUE
+            queryPath: []
+            columnType: BOOLEAN
+        columnProperties: []
+        columnOrdering: null
+        customColumnOrdering: null
+        pinnedColumns: null
+        hiddenColumns: null
+        pinIndexColumns: false
+        showAggregations: false
+        columnAggregations: null
+  - cellType: MARKDOWN
+    cellId: 01978930-8093-7110-bfad-501704b0518c # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      source: |-
+        The data reveals a clear spike in engagement on **Tuesdays.**
+
+        Viral videos also posted on Tuesdays received **4.5x more engagement** than those published on weekends (Friday, Sunday), or Monday.
+
+        Why?
+
+        One theory: 
+
+        > It might be that Tuesday hits a sweet spot in the weekly rhythm: viewers are settled into their routines, looking to learn and engage, but without the burnout that can come later in the week.
+
+        > Or maybe it’s a strategic sweet spot with less competition from other uploads, giving your video a clearer path to shine. — boosting early engagement and ensuring longer-term relevance.
+
+        ###### Remember that second creator from earlier — the one who went viral in 2024?
+
+        Two of their hits landed on a **Tuesday. In Q1.**
+
+        Coincidence? Maybe.
+        But the data says — it’s happening more often than not.
+
+        The takeaway?
+        Don’t battle for attention on weekends. Drop your videos when minds are sharp and browsers are open.
+  - cellType: MARKDOWN
+    cellId: 019796ac-6ea2-7bb4-b8d7-8e0e65bda6c8 # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      source: |-
+        ### Seasonality
+
+        ---
+
+        Over time, more videos are being published in the analytics engineering niche — but are more of them going viral?
+
+        This chart breaks it down month by month, showing how the volume of content and virality shift across time.
+  - cellType: CHARTV2
+    cellId: 01977e47-3201-7bb1-a25d-cbe6ff32ba3c # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      height: null
+      chartSpec:
+        type: layered
+        facet: {}
+        layers:
+          - id: 01977e47-3200-7bb1-a25d-a4d2f4c6afac
+            xAxis:
+              sort:
+                - January
+                - February
+                - March
+                - April
+                - May
+                - June
+                - July
+                - August
+                - September
+                - October
+                - November
+                - December
+              type: string
+              style:
+                grid:
+                  style: none
+                ticks: {}
+                labels:
+                  angle: 0
+              title: Month
+              hideTitle: false
+              dataFrameColumn: published_month_name
+            series:
+              - id: 01977e47-3837-7bb1-a25e-02a7e324fb7e
+                type: area
+                axis:
+                  type: string
+                  style:
+                    grid:
+                      style: none
+                    ticks: {}
+                    labels: {}
+                  title: Videos count
+                  aggregate: count
+                dataFrameColumns:
+                  - video_title
+                colorDataFrameColumn: is_viral
+                colorOrder: ascending
+                color:
+                  type: series
+                  dataType: string
+                  colorsBySeriesValues: {}
+                opacity:
+                  type: static
+                  value: 1
+                tooltip:
+                  type: auto
+                dataLabels:
+                  position: auto
+                line: true
+                point: true
+                normalize: false
+            dataFrame: dataframe
+        settings:
+          legend:
+            position: right
+          tooltip: true
+          selectionEnabled: false
+      chartSelection: {}
+      colorMappings:
+        "true": "#4C78A8"
+        "false": "#F58518"
+      resultVariable: chart_result_6
+      outputResult: true
+      displayType: CHART
+      displayTableConfig:
+        pageSize: 50
+        height: null
+        hideIcons: false
+        defaultColumnWidth: null
+        hideIndex: false
+        defaultSortColumn: null
+        defaultSortIndexColumn: null
+        defaultSortDirection: ASC
+        conditionalFormatting: null
+        calcs: null
+        filters: []
+        columnProperties: []
+        columnOrdering: null
+        customColumnOrdering: null
+        pinnedColumns: null
+        hiddenColumns: null
+        pinIndexColumns: false
+        showAggregations: false
+        columnAggregations: null
+  - cellType: MARKDOWN
+    cellId: 01978931-197a-7110-bfae-4644555c3cc5 # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      source: |-
+        The calendar doesn’t just affect when creators upload — it shapes how those videos perform.
+
+        In March, we saw a surge in uploads and viral hits — suggesting a sweet spot where volume and viewer interest aligned.
+
+        But November? While upload volume spiked again, virality didn’t follow.
+
+        And then there’s July — fewer videos overall, yet a disproportionate number went viral.
+
+        What does that tell us?
+        It’s not just about when you post — it’s about when your audience is most primed to care.
+
+        Timing matters. But relevance + timing? 
+
+        That’s when things explode.
+
+        Because High volume ≠ high virality.
+  - cellType: MARKDOWN
+    cellId: 01978932-3b3a-7110-bfae-d851dfb2c4db # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      source: |-
+        We’ve talked about timing on the calendar —
+        the months and days that tilt the odds in your favor.
+
+        But some videos don’t just win the week or month.
+        They ride the wave of a bigger moment.
+
+        Let’s zoom out.
+        Let’s talk eras.
+  - cellType: MARKDOWN
+    cellId: 01978932-70bd-7110-bfaf-602efbbbfe84 # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      source: |-
+        ### Year by Year: "How the Game Has Changed”
+
+        ---
+        Over the last three years, as more creators enter the analytics engineering space, the volume of content has exploded.
+
+        But here’s the twist: virality hasn’t kept pace.
+
+        This chart compares the number of viral vs non-viral videos each year — and what it reveals might shift how you think about content timing and competition.
+  - cellType: CHARTV2
+    cellId: 01977e36-9e29-7bb1-a255-3b79b3e98680 # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      height: null
+      chartSpec:
+        type: layered
+        layers:
+          - id: 01977e36-9e28-7bb1-a255-11750fa70d05
+            xAxis:
+              type: datetime
+              style:
+                grid:
+                  style: none
+                ticks: {}
+                labels:
+                  angle: 0
+              title: Year
+              timeUnit: year
+              hideTitle: false
+              dataFrameColumn: published_date
+            series:
+              - id: 01978953-9b01-7110-bff0-3beb96e98002
+                name: Line series 2
+                type: bar
+                axis:
+                  type: string
+                  style:
+                    grid:
+                      style: none
+                    ticks: {}
+                    labels: {}
+                  aggregate: valid
+                  hideTitle: true
+                dataFrameColumns:
+                  - video_id
+                colorDataFrameColumn: is_viral
+                colorOrder: ascending
+                color:
+                  type: series
+                  dataType: string
+                  colorsBySeriesValues: {}
+                opacity:
+                  type: static
+                  value: 1
+                tooltip:
+                  type: custom
+                  fields: []
+                  includeAuto: true
+                dataLabels:
+                  position: outside-end
+                barWidth: 1
+                orientation: horizontal
+                layout: grouped
+            dataFrame: dataframe
+        settings:
+          legend:
+            position: right
+          tooltip: true
+          selectionEnabled: false
+      chartSelection: {}
+      colorMappings:
+        "true": "#F58518"
+        "false": "#4C78A8"
+      resultVariable: chart_result_4
+      outputResult: false
+      displayType: CHART
+      displayTableConfig: null
+  - cellType: MARKDOWN
+    cellId: 01978932-c9a6-7110-bfb0-0b72babe6248 # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      source: |-
+        In 2023, the odds of going viral were slim — about 1 in 30 videos took off.
+
+        But in 2024, something shifted. Not only did uploads increase, but viral hits more than doubled, pushing the hit rate to nearly 1 in 17.
+
+        2025 (so far) tells a different story — uploads have dipped, and virality is cooling.
+
+        There’s no perfect time to post.
+
+        But there are windows — eras when the audience is hungry, the algorithm is generous, and the right message cuts through.
+
+        If 2023 was the grind, and 2024 was the breakout, then 2025?
+
+        It's still being written.
+  - cellType: MARKDOWN
+    cellId: 01979a47-3681-7996-ad56-89ae37c058c9 # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      source: |-
+        ## Tactical recommendation
+        After all said and done, here's how to build videos that don’t just go live — they go **viral**:
+  - cellType: MARKDOWN
+    cellId: 01979a47-8a5f-7996-ad57-1f4dbab894d0 # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      source: |-
+        ✅ **Post when minds are sharp.**  
+
+        Tuesdays consistently saw higher engagement.  
+
+        📅 Timing isn't random — it's leverage.
+
+        ---
+
+        ✅ Change visuals every 7–10 seconds.
+
+        Zoom, switch shots, add overlays — even static screens should move.
+
+        👁️ Motion keeps the eyes locked.
+
+        ---
+
+        ✅ Create loops that tease later content.
+
+        Set up a question early, then answer it later — keeps viewers watching.
+
+        🔁 Curiosity is your best retention strategy.
+
+        --- 
+        ✅ Engage fast after upload.
+
+        Reply to comments. Share on socials. Drive early views.
+
+        🚀 The algorithm watches first 24 hours closely.
+
+        ---
+
+        ✅ **Small channels can punch above their weight.**  
+
+        Some creators with <50K subs had **multiple viral hits**. 
+
+        🚀 Subscriber count is fuel, not the engine.
+
+        ---
+
+        ✅ Ask viewers to comment on specific things.
+
+        Not “What do you think?” — ask something they have to answer.
+
+        💬 “Have you ever broken dbt tests without realizing?” > “Leave a comment.”
+
+        ---
+
+        ✅ **Spot the patterns.**  
+
+        Certain formats, titles, and tools (like dbt and Snowflake) show up again and again in viral hits.  
+
+        🧠 Study them. Repeat them. Remix them.
+
+        ---
+
+        ✅ **Relevance > Recency.**  
+
+        Posting in high-traffic months (like March) gives your content a bigger runway.  
+
+        📈 Drop content *when the audience is paying attention.*
+
+        ---
+
+        ✅ **Build with intention — not just hope.**  
+
+        Virality isn't magic. It's a system.  
+
+        🎯 The creators who win? They publish with a blueprint.
+  - cellType: MARKDOWN
+    cellId: 01979a3d-2223-7996-ad50-ceea5c1a82a1 # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      source: "# So next time you hit publish ..."
+  - cellType: MARKDOWN
+    cellId: 01979a55-1ab1-7996-ad5a-33cd6e360a66 # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      source: |-
+        #### Bonus content
+
+        --- 
+        If you're curious, here’s how medium and large channels stack up by subscriber count.
+  - cellType: CHARTV2
+    cellId: 01977e3b-90e0-7bb1-a258-43dc1388ae01 # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: Chart 40
+    config:
+      height: null
+      chartSpec:
+        type: layered
+        layers:
+          - id: 01977e3b-90de-7bb1-a258-1a396972bfaa
+            xAxis:
+              sort: -x
+              type: string
+              style:
+                grid:
+                  style: none
+                ticks: {}
+                labels: {}
+              title: Channel name
+              dataFrameColumn: channel_name
+            series:
+              - id: 01977e3b-96a4-7bb1-a258-7a75c7777f11
+                type: bar
+                axis:
+                  type: number
+                  style:
+                    grid:
+                      style: none
+                    ticks: {}
+                    labels: {}
+                  title: Subscriber count
+                dataFrameColumns:
+                  - subscriber_count
+                colorDataFrameColumn: channel_name
+                colorOrder: ascending
+                color:
+                  type: series
+                  dataType: string
+                  colorsBySeriesValues: {}
+                opacity:
+                  type: static
+                  value: 1
+                tooltip:
+                  type: auto
+                dataLabels:
+                  position: outside-end
+                barWidth: 1
+                orientation: horizontal
+                layout: grouped
+            dataFrame: dataframe
+        settings:
+          legend:
+            position: bottom-right
+          tooltip: true
+          selectionEnabled: false
+      chartSelection: {}
+      colorMappings:
+        PyData: "#B279A2"
+        Fireship: "#9D755D"
+        AWS Events: "#4C78A8"
+        ByteByteGo: "#72B7B2"
+        Databricks: "#B279A2"
+        IT k Funde: "#BAB0AC"
+        Krish Naik: "#F58518"
+        codebasics: "#F58518"
+        Ankit Bansal: "#E45756"
+        Andreas Kretz: "#F58518"
+        Luke Barousse: "#E45756"
+        Manish Sharma: "#72B7B2"
+        Vamsi Bhavani: "#4C78A8"
+        Darshil Parmar: "#54A24B"
+        Data with Zach: "#EECA3B"
+        "KSR Datavizon ": "#4C78A8"
+        The Ravit Show: "#BAB0AC"
+        Maven Analytics: "#54A24B"
+        Pragmatic Works: "#EECA3B"
+        Seattle Data Guy: "#FF9DA6"
+        E-Learning Bridge: "#FF9DA6"
+        The Big Data Show: "#9D755D"
+      resultVariable: chart_result_5
+      outputResult: true
+      displayType: CHART
+      displayTableConfig:
+        pageSize: 50
+        height: null
+        hideIcons: false
+        defaultColumnWidth: null
+        hideIndex: false
+        defaultSortColumn: null
+        defaultSortIndexColumn: null
+        defaultSortDirection: ASC
+        conditionalFormatting: null
+        calcs: null
+        filters:
+          - column: channel_size
+            fieldType: COLUMN
+            predicate:
+              op: OR
+              args:
+                - op: EQ
+                  arg: medium
+                - op: EQ
+                  arg: large
+            queryPath: []
+            columnType: STRING
+        columnProperties: []
+        columnOrdering: null
+        customColumnOrdering: null
+        pinnedColumns: null
+        hiddenColumns: null
+        pinIndexColumns: false
+        showAggregations: false
+        columnAggregations: null
+  - cellType: SQL
+    cellId: 01977da6-b542-7bb1-a1ef-939a9cf3890a # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: Dataframe
+    config:
+      source: select * from "analytics"."fct_videos_performance"
+      dataFrameCell: false
+      dataConnectionId: 0197653b-e6cf-7eed-89a1-1b1209776cbd
+      resultVariableName: dataframe
+      useRichDisplay: true
+      sqlCellOutputType: PANDAS
+      useQueryMode: false
+      castDecimals: true
+      useNativeDates: true
+      outputFilteredResult: true
+      allowDuplicateColumns: false
+      tableDisplayConfig:
+        pageSize: 50
+        height: null
+        hideIcons: false
+        defaultColumnWidth: null
+        hideIndex: false
+        defaultSortColumn: null
+        defaultSortIndexColumn: null
+        defaultSortDirection: ASC
+        conditionalFormatting: null
+        calcs: null
+        filters: null
+        columnProperties:
+          - originalName: channel
+            renameTo: null
+            size: 120
+            wrapText: null
+            displayFormat: null
+          - originalName: channel_id
+            renameTo: null
+            size: 206
+            wrapText: null
+            displayFormat: null
+          - originalName: channel_name
+            renameTo: null
+            size: 132
+            wrapText: null
+            displayFormat: null
+          - originalName: channel_rate
+            renameTo: null
+            size: 129
+            wrapText: null
+            displayFormat: null
+          - originalName: channel_size
+            renameTo: null
+            size: 122
+            wrapText: null
+            displayFormat: null
+          - originalName: channel_title
+            renameTo: null
+            size: 130
+            wrapText: null
+            displayFormat: null
+          - originalName: comment_count
+            renameTo: null
+            size: 140
+            wrapText: null
+            displayFormat: null
+          - originalName: comment_rate
+            renameTo: null
+            size: 132
+            wrapText: null
+            displayFormat: null
+          - originalName: comments_amount
+            renameTo: null
+            size: 150
+            wrapText: null
+            displayFormat: null
+          - originalName: like_count
+            renameTo: null
+            size: 107
+            wrapText: null
+            displayFormat: null
+          - originalName: like_rate
+            renameTo: null
+            size: 172
+            wrapText: null
+            displayFormat: null
+          - originalName: likes
+            renameTo: null
+            size: 120
+            wrapText: null
+            displayFormat: null
+          - originalName: published_date
+            renameTo: null
+            size: 140
+            wrapText: null
+            displayFormat: null
+          - originalName: row-index-0
+            renameTo: null
+            size: 46
+            wrapText: null
+            displayFormat: null
+          - originalName: subscriber_count
+            renameTo: null
+            size: 144
+            wrapText: null
+            displayFormat: null
+          - originalName: subscribers
+            renameTo: null
+            size: 120
+            wrapText: null
+            displayFormat: null
+          - originalName: video
+            renameTo: null
+            size: 120
+            wrapText: null
+            displayFormat: null
+          - originalName: video_id
+            renameTo: null
+            size: 113
+            wrapText: null
+            displayFormat: null
+          - originalName: video_title
+            renameTo: null
+            size: 120
+            wrapText: null
+            displayFormat: null
+          - originalName: view_count
+            renameTo: null
+            size: 113
+            wrapText: null
+            displayFormat: null
+          - originalName: views
+            renameTo: null
+            size: 120
+            wrapText: null
+            displayFormat: null
+        columnOrdering: null
+        customColumnOrdering: null
+        pinnedColumns: null
+        hiddenColumns: null
+        pinIndexColumns: false
+        showAggregations: false
+        columnAggregations: null
+  - cellType: MARKDOWN
+    cellId: 01979a4f-1378-7996-ad59-1ce761be553c # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      source: |-
+        ## #3 Words that went viral
+
+        --- 
+
+        The language behind high-performing Video titles.
+  - cellType: CODE
+    cellId: 01978a76-7877-7000-b9c7-b42ce263e995 # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: Count Key Term Frequencies
+    config:
+      source: |-
+        import pandas as pd
+
+        # List of key terms to search for (user-specified and common data terms)
+        key_terms = [
+            "prefect",
+            "ETL",
+            "python",
+            "airbyte",
+            "data engineering",
+            "analytics engineer",
+            "postgresql",
+            "dbt",
+            "data analytics",
+            "tutorial",
+            "hex",
+        ]
+
+        # Lowercase video titles for case-insensitive matching
+        video_titles_lower = dataframe["video_title"].str.lower().fillna("")
+
+        # Prepare a list to store term frequencies
+        term_frequencies = []
+
+        for term in key_terms:
+            # Lowercase the term for case-insensitive matching
+            term_lower = term.lower()
+            # Count occurrences of the term in all video titles
+            frequency = video_titles_lower.str.count(term_lower).sum()
+            term_frequencies.append({"term": term, "frequency": int(frequency)})
+
+        # Create the output dataframe
+        term_frequencies_df = pd.DataFrame(term_frequencies)
+
+        # Generate a word cloud for all words in video titles (not just key terms)
+        from wordcloud import WordCloud
+        import matplotlib.pyplot as plt
+
+        all_titles = " ".join(video_titles_lower)
+        wordcloud = WordCloud(width=800, height=400, background_color="white").generate(
+            all_titles
+        )
+        plt.figure(figsize=(12, 6))
+        plt.imshow(wordcloud, interpolation="bilinear")
+        plt.axis("off")
+        plt.title("Word Cloud of Video Title Terms")
+        plt.show()
+  - cellType: TEXT
+    cellId: 01979caa-8439-7dd5-a14b-2acfdbbf02df # DO NOT CHANGE - Hex uses this to match up cells when reimporting the file, and detect any changes to existing cells
+    cellLabel: null
+    config:
+      richText:
+        - type: blockquote
+          children:
+            - text: |-
+                Don’t just hope for the algorithm. Don’t chase trends blindly.
+
+                Build with intention. Drop when attention is highest. Shape your title like a hook, your topic like a trap, and your format like it matters.
+
+                Because virality isn’t magic.
+
+                It’s timing, pattern, and strategy — stacked.
+
+                Now you’ve seen the blueprint.
+
+                What you do with it?
+
+                That’s where your own real story begins.
+appLayout:
+  visibleMetadataFields:
+    - NAME
+    - DESCRIPTION
+    - AUTHOR
+    - CATEGORIES
+    - LAST_EDITED
+    - STATUS
+  fullWidth: true
+  tabs:
+    - name: Tab 1
+      rows:
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01979617-8e30-7bb4-b87c-12221f2df23a
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01979cac-69b0-7dd5-a154-cc67b329525c
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 30
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01979623-e96d-7bb4-b889-c7021276a429
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 24
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01978799-f4dc-7554-8b3b-e4390f03b5c4
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+            - start: 24
+              end: 48
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 0197893f-b99d-7110-bfbf-8137228cb632
+                  sharedFilterId: null
+                  height: 50
+                  showLabel: false
+            - start: 48
+              end: 72
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 0197879a-c805-7554-8b3c-79d3c8f40e83
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+            - start: 72
+              end: 96
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01978946-92fd-7110-bfe1-ffb815070d04
+                  sharedFilterId: null
+                  height: null
+                  showLabel: false
+            - start: 96
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 019787f1-6ca4-7554-8b43-2942ffdcbb56
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 0197890c-29f6-7110-bf93-ef11db17f6e4
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01979626-47ff-7bb4-b898-4fb5603f0db5
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 30
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01979626-e310-7bb4-b899-39ab6459efdc
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+            - start: 30
+              end: 60
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01979628-e1c0-7bb4-b89a-cb01c1a3a97e
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+            - start: 60
+              end: 90
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01979629-63c6-7bb4-b89b-95c5187d2698
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+            - start: 90
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 0197962a-14b1-7bb4-b89c-37cf188be23a
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 0197962e-e05e-7bb4-b89d-5d89d13a4d30
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 0197890d-d1cd-7110-bf96-076dc26c4ada
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01977e21-6f90-7bb1-a23d-cb2927f60020
+                  sharedFilterId: null
+                  height: 500
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 60
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 0197890f-b87e-7110-bf97-19e34f048d5a
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01979813-f9b4-7440-8e92-1148ad1345df
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01977e23-fca9-7bb1-a23f-843503561d15
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01978912-b335-7110-bf99-6033da7d8a7b
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01979813-8c99-7440-8e90-4451544766b4
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01978915-44fc-7110-bf9b-2883a7b130ce
+                  sharedFilterId: null
+                  height: 500
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01978916-e298-7110-bf9c-1b0d38dbf319
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 0197892e-8958-7110-bfab-7453fcab3689
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 80
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01977e2a-0e98-7bb1-a241-6c720aa2a257
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+            - start: 80
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01978924-0df8-7110-bfa8-3a3dbccd05b1
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01979abc-70ba-7996-adf6-c8b82dee534b
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 0197892f-8c31-7110-bfac-8cddcb95bcda
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01977e4e-ce80-7bb1-a261-498d10481559
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01978930-8093-7110-bfad-501704b0518c
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 019796ac-6ea2-7bb4-b8d7-8e0e65bda6c8
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01977e47-3201-7bb1-a25d-cbe6ff32ba3c
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01978931-197a-7110-bfae-4644555c3cc5
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01978932-3b3a-7110-bfae-d851dfb2c4db
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01978932-70bd-7110-bfaf-602efbbbfe84
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01977e36-9e29-7bb1-a255-3b79b3e98680
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01978932-c9a6-7110-bfb0-0b72babe6248
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01979a4f-1378-7996-ad59-1ce761be553c
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01978a76-7877-7000-b9c7-b42ce263e995
+                  sharedFilterId: null
+                  height: null
+                  showLabel: false
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01979a55-1ab1-7996-ad5a-33cd6e360a66
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01977e3b-90e0-7bb1-a258-43dc1388ae01
+                  sharedFilterId: null
+                  height: null
+                  showLabel: false
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01979a47-3681-7996-ad56-89ae37c058c9
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01979a47-8a5f-7996-ad57-1f4dbab894d0
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01979a3d-2223-7996-ad50-ceea5c1a82a1
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+        - columns:
+            - start: 0
+              end: 120
+              elements:
+                - showSource: false
+                  hideOutput: false
+                  type: CELL
+                  cellId: 01979caa-8439-7dd5-a14b-2acfdbbf02df
+                  sharedFilterId: null
+                  height: null
+                  showLabel: true
+sharedFilters: []
