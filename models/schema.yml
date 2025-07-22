@@ -70,10 +70,10 @@ models:
         description: "Boolean flag indicating whether a video surpassed a predefined viral engagement threshold"
 
 sources:
-  - name: analytics
+  - name: raw
     description: >
       This source contains raw data ingested from the youtube data Api.
-    schema: analytics
+    schema: source
     tables:
       - name: youtube_engineering_ng
         description: "Data searched terms videos scraped from Youtube"

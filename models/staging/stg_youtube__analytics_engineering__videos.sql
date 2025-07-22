@@ -6,7 +6,7 @@ WITH
 
 source as (
     select *  
-    from {{ source('analytics', 'youtube_engineering_ng') }}
+    from {{ source('raw', 'youtube_engineering_ng') }}
 ),
 
 
