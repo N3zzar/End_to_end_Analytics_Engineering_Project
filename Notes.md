@@ -32,5 +32,12 @@ If you want your layers to exist in multiple schema then you have to use generat
 
 I learnt how to override default materialization
 How to use generate_schema_name
+Send slack notifications from github actions
 
 
+
+https://hooks.slack.com/services/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
+
+NETLIFY_AUTH_TOKEN
+nfp_ZGKDpjJxkLbMvB8mY9x7JtKj9QknEdH40455
+SITE_ID: 76acbec8-bebb-493c-b392-24a734f934dd
