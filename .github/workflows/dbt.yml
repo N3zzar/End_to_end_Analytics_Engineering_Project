@@ -1,0 +1,86 @@
+name: dbt Config
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main] 
+  schedule:
+    - cron: '0 0 * * *'  # Runs daily at midnight UTC
+
+jobs:
+  dbt:
+    runs-on: ubuntu-latest
+    env:
+      DBT_USER: ${{ secrets.DBT_USER }}
+      DBT_PASSWORD: ${{ secrets.DBT_PASSWORD }}
+      DBT_HOST: ${{ secrets.DBT_HOST }}
+      DBT_DB: ${{ secrets.DBT_DB }}
+      DBT_SCHEMA: ${{ secrets.DBT_SCHEMA }}
+      DBT_PORT: ${{ secrets.DBT_PORT }}
+    
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dbt + dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r dbt-core.txt || true
+          pip install dbt-core dbt-postgres netlify-cli
+
+
+      - name: Set up dbt profile
+        run: |
+          mkdir -p ~/.dbt
+          echo "
+          first_personal_project:
+            target: dev
+            outputs:
+              dev:
+                type: postgres
+                threads: 1
+                host: $DBT_HOST
+                port: $DBT_PORT
+                user: $DBT_USER
+                password: $DBT_PASSWORD
+                dbname: $DBT_DB
+                schema: $DBT_SCHEMA
+            " > ~/.dbt/profiles.yml
+      
+      - name: Run dbt deps
+        run: dbt deps   
+
+      - name: Run dbt build
+        run: dbt build | tee dbt_build.log
+
+      - name: Run dbt test
+        run: dbt test | tee dbt_test.log  
+      
+      - name: Generate and deploy dbt docs to netlify
+        run: |
+          dbt docs generate
+          netlify deploy --dir=target --prod --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --site ${{ secrets.SITE_ID }}
+
+      - name: Upload dbt logs and artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dbt-logs
+          path: |
+            dbt_build_output.log
+            dbt_test_output.log
+            target/
+          
+      - name: Slack notification
+        if: always()
+        uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          fields: repo, commit, author, message
+        env:
+            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
