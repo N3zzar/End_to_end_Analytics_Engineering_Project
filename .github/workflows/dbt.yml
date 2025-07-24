@@ -29,7 +29,7 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Set up node (for netlify CLI)
+      - name: Set up node (for Netlify CLI)
         uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -50,7 +50,7 @@ jobs:
           first_personal_project:
             target: cloud
             outputs:
-              dev:
+              cloud:
                 type: postgres
                 threads: 1
                 host: $DBT_HOST
