@@ -1,4 +1,2 @@
 dbt-core
-dbt-snowflake
-dbt-mysql
 dbt-postgres

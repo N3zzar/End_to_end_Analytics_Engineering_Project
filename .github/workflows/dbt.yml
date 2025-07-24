@@ -29,19 +29,26 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Set up node (for netlify CLI)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
       - name: Install dbt + dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r dbt-core.txt
-          pip install dbt-core dbt-postgres netlify-cli
+          pip install dbt-core == 1.7.9 dbt-postgres ==1.7.9 
+          npm install -g netlify-cli
 
 
       - name: Set up dbt profile
         run: |
           mkdir -p ~/.dbt
-          echo "
+          cat > ~/.dbt/profiles.yml <<'YAML'
           first_personal_project:
-            target: dev
+            target: cloud
             outputs:
               dev:
                 type: postgres
@@ -58,17 +65,32 @@ jobs:
         run: dbt deps   
 
       - name: Run dbt build
-        run: dbt build | tee dbt_build.log
+        shell: bash
+        run: |
+          set -euo pipefail
+          dbt build 2>&1 | tee dbt_build.log
 
       - name: Run dbt test
-        run: dbt test | tee dbt_test.log  
-      
-      - name: Generate and deploy dbt docs to netlify
+        shell: bash
+        # Run dbt tests and save output to a log file
         run: |
+          set -euo pipefail
+          dbt test 2>&1 | tee dbt_test.log
+
+      - name: Generate dbt docs
+        shell: bash
+        run: |
+          set -euo pipefail
           dbt docs generate
-          netlify deploy --dir=target --prod --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --site ${{ secrets.SITE_ID }}
+
+      - name: deploy dbt docs to netlify
+        if: success()
+        run: |
+          netlify deploy --prod --dir=target --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --site ${{ secrets.SITE_ID }}
+          
 
       - name: Upload dbt logs and artifacts
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: dbt-logs
@@ -79,6 +101,7 @@ jobs:
           
       - name: Slack notification
         if: always()
+        continue-on-error: true
         uses: 8398a7/action-slack@v3
         with:
           status: ${{ job.status }}
