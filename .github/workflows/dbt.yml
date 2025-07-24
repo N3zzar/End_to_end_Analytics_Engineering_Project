@@ -86,7 +86,7 @@ jobs:
       - name: deploy dbt docs to netlify
         if: success()
         run: |
-          netlify deploy --prod --dir=target --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --site ${{ secrets.SITE_ID }}
+          netlify deploy --prod --dir=target --auth "${{ secrets.NETLIFY_AUTH_TOKEN }}" --site "${{ secrets.NETLIFY_SITE_ID }}"
           
 
       - name: Upload dbt logs and artifacts
