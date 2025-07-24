@@ -33,7 +33,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
 
       - name: Install dbt + dependencies
         run: |
@@ -46,7 +45,7 @@ jobs:
       - name: Set up dbt profile
         run: |
           mkdir -p ~/.dbt
-          cat > ~/.dbt/profiles.yml <<'YAML'
+          cat <<EOF > ~/.dbt/profiles.yml
           first_personal_project:
             target: cloud
             outputs:
@@ -59,7 +58,7 @@ jobs:
                 password: $DBT_PASSWORD
                 dbname: $DBT_DB
                 schema: $DBT_SCHEMA
-            " > ~/.dbt/profiles.yml
+          EOF
       
       - name: Run dbt deps
         run: dbt deps   
