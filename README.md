@@ -82,7 +82,7 @@ Here's how dbt added value to the pipeline:
 - [`models/marts/`](./models/marts) – Business-ready table  (This was materialised as a table)
 - [`schema.yml`](./models/schema.yml) – Tests + documentation
 - [`exposure`](./models/exposure.yml) - Defined downstream dashboard dependencies for data governance and impact tracking purposes.
-- [`date_column documentation`](./models/date_documentation.md)
+- [`date_column documentation`](./models/date_documentation.md) - Documentation for the uniques values in my date column
 - [`tests`](./tests) - for singular testing
 - [`macros`](./macros) – Custom and reusable logic like `is_viral()`
 - [`seeds`](./seeds) - Reference threshold
